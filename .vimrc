@@ -1,5 +1,8 @@
 syntax on
 
+let mapleader = ","
+let g:mapleader = ","
+
 " 折り返し無効
 set nowrap
 
@@ -180,7 +183,7 @@ let g:user_emmet_leader_key='<C-Y>'
  " 文法チェック
  NeoBundle 'ngmy/vim-rubocop'
  let g:vimrubocop_keymap = 0
- nmap <Leader>check :RuboCop<CR>
+ nmap <Leader>rr :RuboCop<CR>
 
  " true/falseのtoggleなど
  NeoBundle 'AndrewRadev/switch.vim'
