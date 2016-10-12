@@ -3,6 +3,12 @@ syntax on
 " 折り返し無効
 set nowrap
 
+" BOM無効
+set nobomb
+
+" 内容が変更されたら自動的に再読込
+set autoread
+
 " タブの表示上の幅
 set tabstop=2
 
@@ -12,6 +18,15 @@ set expandtab
 " 自動インデントに使われる空白の数
 set shiftwidth=2
 
+" キーボードでタブを入力した際に、空白いくつ分に変換するか
+set softtabstop=2
+
+" 入力中のコマンドを表示
+set showcmd
+
+" 大文字小文字
+set ignorecase
+
 " タイトルをバッファ名に変更しない
 set notitle
 
@@ -20,6 +35,9 @@ set ttyfast
 
 " 他で編集されたら再読み込み
 set autoread
+
+" マウスの有効化
+set mouse=a
 
 " クリップボードコピー
 set clipboard=unnamed,autoselect
@@ -48,6 +66,12 @@ set showmatch
 " 検索結果をハイライトする
 set hlsearch
 
+" バックアップの有無
+set nobackup
+
+" swapファイル生成の有無
+set noswapfile
+
 " swapファイルの生成先
 set directory=~/tmp
 
@@ -59,6 +83,9 @@ set number
 
 " エンコーディング設定
 set encoding=utf-8
+
+" □や○文字が崩れる問題を解決
+set ambiwidth=double
 
 " ============== BIND ========================
 map <Leader>l :!php -l %<CR>
@@ -117,8 +144,6 @@ let g:user_emmet_leader_key='<C-Y>'
 
  NeoBundle 'scrooloose/nerdcommenter'
  NeoBundle 'scrooloose/nerdtree'   
- NeoBundle 'slim-template/vim-slim'   
- NeoBundle 'tpope/vim-rails'   
  NeoBundle 'saihoooooooo/vim-auto-colorscheme'
  NeoBundle 'motemen/git-vim'
  NeoBundle 'tpope/vim-surround'
@@ -129,7 +154,7 @@ let g:user_emmet_leader_key='<C-Y>'
  NeoBundle 'tomasr/molokai'
 
  " ウィンドウサイズ変更
- NeoBundle 'simeji/winresizer'
+ "NeoBundle 'simeji/winresizer'
 
  " Silver Searcherを使えるようにする @see
  " https://github.com/ggreer/the_silver_searcher/blob/master/doc/ag.1.md
@@ -138,12 +163,43 @@ let g:user_emmet_leader_key='<C-Y>'
  " html5のタグに対応
  NeoBundle 'othree/html5.vim'
 
- " zoom
- NeoBundle 'vim-scripts/zoom.vim'
+ " データベース操作
+ NeoBundle 'vim-scripts/dbext.vim'
 
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
- " Note: You don't set neobundle setting in .gvimrc!
+ let dbext_default_profile=""
+ let dbext_default_type="MYSQL"
+ let dbext_default_user="root"
+ let dbext_default_passwd="password"
+ let dbext_default_dbname="codecamp"
+ let dbext_default_host="localhost"
+ "vimに表示する行数設定
+ "let dbext_default_buffer_lines=30 
+
+ " コメント
+ NeoBundle 'tomtom/tcomment_vim'
+
+ "" Rails 
+
+ " Unite Rails
+ NeoBundle 'basyura/unite-rails'
+
+ " end補完
+ NeoBundle 'tpope/vim-endwise.git' 
+
+ " railsのsyntax
+ NeoBundle 'tpope/vim-rails'   
+
+ " 文法チェック
+ NeoBundle 'ngmy/vim-rubocop'
+ let g:vimrubocop_keymap = 0
+ nmap <Leader>check :RuboCop<CR>
+
+ " true/falseのtoggleなど
+ NeoBundle 'AndrewRadev/switch.vim'
+ let g:switch_mapping = "+"
+
+ "" Slim(テンプレエンジン)
+ NeoBundle 'slim-template/vim-slim'   
 
  call neobundle#end()
 
