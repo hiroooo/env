@@ -104,12 +104,6 @@ let g:unite_source_file_mru_limit = 200
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
-" vim-auto-colorscheme
-"let g:auto_colorscheme_default = 'jellybeans'
-"let g:auto_colorscheme_config = [
-"\   ['~/project/codecamp-rails', 'molokai'],
-"\ ]
-
 " nerdtree
 " 隠しファイルをデフォルトで表示させる
 let g:NERDTreeShowHidden = 1
@@ -117,7 +111,7 @@ let g:NERDTreeShowHidden = 1
 " vim-auto-colorscheme {{{
 let g:auto_colorscheme_default = 'jellybeans'
 let g:auto_colorscheme_config = [
-\   ['^/Users/suzukihiroaki/project/codecamp-rails', 'molokai'],
+\   ['*', 'molokai'],
 \ ]
 
 " emmet
@@ -166,12 +160,6 @@ let g:user_emmet_leader_key='<C-Y>'
  " データベース操作
  NeoBundle 'vim-scripts/dbext.vim'
 
- let dbext_default_profile=""
- let dbext_default_type="MYSQL"
- let dbext_default_user="root"
- let dbext_default_passwd="password"
- let dbext_default_dbname="codecamp"
- let dbext_default_host="localhost"
  "vimに表示する行数設定
  "let dbext_default_buffer_lines=30 
 
